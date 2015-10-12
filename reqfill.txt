@@ -1,1 +1,2 @@
 astec.dev.conf.https://github.com/Oracle/Lukasz.git
+AS
