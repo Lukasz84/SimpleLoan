@@ -8,7 +8,7 @@ private $dbHost;
 private $numRows;
 private $handler;
 
-public function __construct($h,$u,$p,$n) {
+public function __construct($h="localhost",$u="root",$p="",$n="simpleloan") {
     
     $this->dbHost=$h;
     $this->User=$u;
@@ -39,8 +39,8 @@ public function Select($table, $what='*') {
 }
         //END OF Select
 }
-$a=new DbMySqlDriver('localhost','root','','simpleloan');
-$w=$a->Select('users');
+$a=new DbMySqlDriver();
+$w=$a->Select('users','login');
 foreach ($w as $value) {
     echo $value['login'];
 }

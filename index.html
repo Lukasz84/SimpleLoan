@@ -31,7 +31,7 @@ body{
 	width: auto;
 	height: auto;
 	background-image:url('graphics/rbs.jpg');
-	background-size: cover;
+	background-size:cover;
 	z-index: 0;
 }
 
@@ -90,6 +90,19 @@ body{
 	padding: 4px;
 }
 
+.login select{
+	width: 450px;
+	height: 50px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color:#ffa;
+	font-family: 'Exo', sans-serif;
+	font-size: 18px;
+	font-weight: 400px;
+	padding: 4px;
+	margin-top:25px;
+}
 .login input[type=password]{
 	width: 250px;
 	height: 50px;
@@ -133,6 +146,10 @@ body{
 	outline: none;
 	border: 1px solid rgba(255,255,255,0.9);
 }
+.login select:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
 
 .login input[type=password]:focus{
 	outline: none;
@@ -162,24 +179,51 @@ body{
 		<div class="grad"></div>
 		<div class="header">
 			<div>Simple as We can...<span> for You Loan</span><br>
-                            <span>First</span> Step <span>fill up simple form:</div>
+          </div>
 		</div>
 		<br>
         <form>
-		<div class="login">
-                    <h3>First name:</h3>   <input type="text" placeholder="firstname" name="name" id="name"> 
-                    <p id="namer" style="display:inline; font-weight: b
-                       old; color: greenyellow; font-size: 12px;"></p><br>
-                    <h3>Last name:</h3><input type="text" placeholder="lastname" name="lname" id="lname">
-                    <p id="lnamer" style="display:inline; font-weight: bold; color: greenyellow; font-size: 12px;"></p><br>
-                    <h3>City:</h3>   <input type="text" placeholder="city" name="city">
-                    <p id="lnamer" style="display:inline; font-weight: bold; color: greenyellow; font-size: 12px;"></p><br>
-                    <h3>Address:</h3>   <input type="text" placeholder="address" name="adr">
-                    <p id="lnamer" style="display:inline; font-weight: bold; color: greenyellow; font-size: 12px;"></p><br>
-                    <h3>Post code:</h3>   <input type="text" placeholder="postcode" name="code">
-                    <p id="lnamer" style="display:inline; font-weight: bold; color: greenyellow; font-size: 12px;"></p><br>
-                    <input type="button" value="Next" name="submit">
-		</div>
+		<div class="login" style="margin-top:-60px;">
+        
+           <section id="calc">
+        			<span>First</span> Step <span>Choose how much do You whant to Loan?</span>:
+                   
+                    <h3>Loan: </h3>   <input type="text" class="loan" placeholder="loan" name="name" id="loan" > 
+                    <h3>Time:</h3><input type="text"  class="loan"  placeholder="time" name="lname" id="lname">
+                     <select>
+                    <option>dsgfsdfgsgsg</option>
+                    <option>fsdsdsfd</option>
+                    </select>
+                    <input type="button" value="Next" name="submit" id="next1">
+                    <span id="info"></span>
+                    </section>
+        
+        <section id="first" hidden="true">
+        			<span>First</span> Step <span>fill up simple form</span>:
+                    <h3>First name:</h3>   <input type="text" class="require" placeholder="firstname" name="name" id="name"> 
+                    
+                    <h3>Last name:</h3><input type="text"  class="require"  placeholder="lastname" name="lname" id="lname">
+                    <h3>City:</h3>   <input type="text" placeholder="city" name="city" class="require">
+                    <h3>Address:</h3>   <input type="text" placeholder="address" name="adr" class="require">
+                    <h3>Post code:</h3>   <input type="text" placeholder="postcode" name="code" class="number">
+                    <input type="button" value="Next" name="submit" id="next1">
+                    <span id="info"></span>
+                    </section>
+		
+        <section id="second" hidden="true">
+        			<span>Second</span> Step <span>fill up simple form</span>:
+                    <h3>PESEL:</h3>   <input type="text" class="require1" placeholder="firstname" name="name" id="name"> 
+                    <h3>:</h3><input type="text"  class="require1"  placeholder="lastname" name="lname" id="lname">
+                    <h3>City:</h3>   <input type="text" placeholder="city" name="city" class="require1">
+                    <h3>Address:</h3>   <input type="text" placeholder="address" name="adr" class="require1">
+                    <h3>Post code:</h3>   <input type="text" placeholder="postcode" name="code" class="number1">
+                    <input type="button" value="Next" name="submit" id="next1">
+                    <input type="button" value="Back" name="submit" id="back">
+                    
+                    <span id="info"></span>
+		</section>
+ 		</div>	       
+     
         </form>
             
         </body>
