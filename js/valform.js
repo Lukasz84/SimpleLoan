@@ -218,6 +218,7 @@ if(cur.hasClass('number'))
 	//Funkcja sprawdzania klawisza
 	$('#next1').click(function()
 		{
+			$('#info').html('');
 			var data=true;
 			$('.loan').each(function() {
                 var current=$(this);
@@ -225,19 +226,17 @@ if(cur.hasClass('number'))
 					{
 						data=false;
 					}
+					
 				});
-			
-				
-				
-				
 		
 		if(data){
+			$('#info').html('');
 			$('#calc').hide('slow');
 			$('#first').show('slow');
+			
 		}
 		else
-		$('#info').html('Zle');
-		
+		$('#info').html('<br><h3 style="color:ORANGE; "> Please corect Your data and click Next again');
 		});
 
 $('#back').click(function()
