@@ -96,7 +96,7 @@ body{
 	background: transparent;
 	border: 1px solid rgba(255,255,255,0.6);
 	border-radius: 2px;
-	color:#ffa;
+	color:#0C0;
 	font-family: 'Exo', sans-serif;
 	font-size: 18px;
 	font-weight: 400px;
@@ -186,15 +186,21 @@ body{
 		<div class="login" style="margin-top:-60px;">
         
            <section id="calc">
-        			<span>First</span> Step <span>Choose how much do You whant to Loan?</span>:
+					<h3>How much money do You need? (From 500 to 50 000 pounds):</h3>
+                    <input type="text" maxlength="5" class="loan"  placeholder="from 500 to 50 000 pounds" name="money" id="money" >
                    
-                    <h3>Loan: </h3>   <input type="text" class="loan" placeholder="loan" name="name" id="loan" > 
-                    <h3>Time:</h3><input type="text"  class="loan"  placeholder="time" name="lname" id="lname">
-                     <select>
-                    <option>dsgfsdfgsgsg</option>
-                    <option>fsdsdsfd</option>
+                    <select id="time">
+                    <option>14 day's</option>
+                    <option>30 day's</option>
+                    <option>2 month's</option>
+                    <option>3 month's</option>
+                    <option>6 month's</option>
+                    <option>one year</option>
                     </select>
-                    <input type="button" value="Next" name="submit" id="next1">
+                       
+                  	<h1 id="result"></h1>
+                     <input type="button" value="Result" name="oblicz" id="oblicz"><br>
+                     <input type="button" value="Next" name="submit" id="next1">
                     <span id="info"></span>
                     </section>
         
@@ -206,22 +212,12 @@ body{
                     <h3>City:</h3>   <input type="text" placeholder="city" name="city" class="require">
                     <h3>Address:</h3>   <input type="text" placeholder="address" name="adr" class="require">
                     <h3>Post code:</h3>   <input type="text" placeholder="postcode" name="code" class="number">
-                    <input type="button" value="Next" name="submit" id="next1">
+                    <input type="button" value="Next" name="submit" id="next2">
+                    <input type="button" value="Back" name="submit" id="back">
                     <span id="info"></span>
                     </section>
 		
-        <section id="second" hidden="true">
-        			<span>Second</span> Step <span>fill up simple form</span>:
-                    <h3>PESEL:</h3>   <input type="text" class="require1" placeholder="firstname" name="name" id="name"> 
-                    <h3>:</h3><input type="text"  class="require1"  placeholder="lastname" name="lname" id="lname">
-                    <h3>City:</h3>   <input type="text" placeholder="city" name="city" class="require1">
-                    <h3>Address:</h3>   <input type="text" placeholder="address" name="adr" class="require1">
-                    <h3>Post code:</h3>   <input type="text" placeholder="postcode" name="code" class="number1">
-                    <input type="button" value="Next" name="submit" id="next1">
-                    <input type="button" value="Back" name="submit" id="back">
-                    
-                    <span id="info"></span>
-		</section>
+       
  		</div>	       
      
         </form>
