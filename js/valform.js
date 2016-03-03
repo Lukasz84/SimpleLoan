@@ -257,6 +257,40 @@ if(cur.hasClass('post'))
 		else
 		$('#info').html('<br><h3 style="color:ORANGE; "> Please corect Your data and click Next again');
 		});
+		
+//Funkcja sprawdzania klawisza dla drugiego kroku
+	$('#next2').click(function()
+		{
+			$('#info2').html('');
+			var data2=true;
+			$('.require').each(function() {
+                var current=$(this);
+				if(current.data('valid')!=true)
+					{
+						data2=false;
+					}
+					
+				});
+					$('.post').each(function() {
+                var current=$(this);
+				if(current.data('valid')!=true)
+					{
+						data2=false;
+					}
+					
+				});
+		
+		
+	
+		if(data2)
+		{
+				$('#info2').html('');
+			$('#first').hide('slow');
+			$('#second').show('slow');
+		}
+		else
+			$('#info2').html('<br><h3 style="color:ORANGE; "> Please corect Your data afcdsfggfgnd click Next again');
+		});
 
 
 
@@ -264,10 +298,12 @@ $('#back').click(function()
 {
 	$('#first').hide('slow'); $('#calc').show('slow');
 	});
-
-$('#next2').click(function()
+	
+$('#back1').click(function()
 {
-	$('#first').hide('slow'); $('#second').show('slow');
+	$('#second').hide('slow'); $('#first').show('slow');
 	});
+
+
 });
 
