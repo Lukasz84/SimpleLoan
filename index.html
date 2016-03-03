@@ -43,6 +43,7 @@ body{
 	bottom: -40px;
 	width: auto;
 	height: auto;
+	background-repeat:repeat-y;
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
 	z-index: 1;
 	opacity: 0.7;
@@ -211,9 +212,17 @@ body{
                     <h3>Last name:</h3><input type="text"  class="require"  placeholder="lastname" name="lname" id="lname">
                     <h3>City:</h3>   <input type="text" placeholder="city" name="city" class="require">
                     <h3>Address:</h3>   <input type="text" placeholder="address" name="adr" class="require">
-                    <h3>Post code:</h3>   <input type="text" placeholder="postcode" name="code" class="number">
+                    <h3>Post code:</h3>   <input type="text" placeholder="postcode" name="code" class="post">
                     <input type="button" value="Next" name="submit" id="next2">
                     <input type="button" value="Back" name="submit" id="back">
+                    <span id="info"></span>
+                    </section>
+             
+        <section id="second" hidden="true">
+        			<span>Second</span> Step <span>fill up simple form</span>:
+                    <h3>First name:</h3>   <input type="text" class="require2" placeholder="firstname" name="name" id="name">
+                    <input type="button" value="Next" name="submit" id="next3">
+                    <input type="button" value="Back" name="submit" id="back1">
                     <span id="info"></span>
                     </section>
 		

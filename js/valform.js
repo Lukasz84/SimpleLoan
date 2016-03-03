@@ -209,13 +209,32 @@ if(cur.hasClass('number'))
 					+ '<br> Length of loan: ' + date + '<br> Total amount: ' + amount 
 					+ '<br> Total loan cost: ' + total)
 				
-				}
+				}});//Koniec funkcji obliczajacej
+				
+				//Walidacja drugiego kroku
+if(cur.hasClass('post'))
+	{
+		if(isNaN(cur.val()))
+		{
+			cur.after('<p style="display:inline; color:ORANGE; padding-left:5px;">  *To pole nie jest liczba</p>');
 			
-			});	
+				cur.data('valid',false);
+			
+		}
+		else if(cur.val()<500||cur.val()>50000)
+			{
+				cur.after('<p style="display:inline; color:ORANGE; padding-left:5px;">  * Select proper loan range </p>');
+				cur.data('valid',false);
+			}
+		else
+			{
+				cur.data('valid',true);
+			}
+	}	
 	}
 
 	
-	//Funkcja sprawdzania klawisza
+	//Funkcja sprawdzania klawisza dla pierwszego kroku
 	$('#next1').click(function()
 		{
 			$('#info').html('');
@@ -239,9 +258,16 @@ if(cur.hasClass('number'))
 		$('#info').html('<br><h3 style="color:ORANGE; "> Please corect Your data and click Next again');
 		});
 
+
+
 $('#back').click(function()
 {
 	$('#first').hide('slow'); $('#calc').show('slow');
+	});
+
+$('#next2').click(function()
+{
+	$('#first').hide('slow'); $('#second').show('slow');
 	});
 });
 
