@@ -5,25 +5,7 @@ function val()
 {
 var cur=$(this);
 cur.next('p').remove();	
-if(cur.hasClass('loan'))
-	{
-		if(isNaN(cur.val()))
-		{
-			cur.after('<p style="display:inline; color:ORANGE; padding-left:5px;">  *To pole nie jest liczba</p>');
-			
-				cur.data('valid',false);
-			
-		}
-		else if(cur.val()<500||cur.val()>50000)
-			{
-				cur.after('<p style="display:inline; color:ORANGE; padding-left:5px;">  * Select proper loan range </p>');
-				cur.data('valid',false);
-			}
-		else
-			{
-				cur.data('valid',true);
-			}
-	}
+
 if(cur.hasClass('require'))
 	{
 		
@@ -57,12 +39,12 @@ if(cur.hasClass('number'))
 
 	
 		$('#oblicz').click(function(){
-			if($('#time').val()=="14 day's" && cur.val()>499 && cur.val()<50001)
+			if($('#time').val()=="14 day's")
 				{
 					var first;
 					var rate;
 					var fee;
-					first=$('#money').val();
+					first=$('#amount').val();
 					first=parseFloat(first);
 					rate=first*0.01;
 					fee=first*0.001;
@@ -84,12 +66,12 @@ if(cur.hasClass('number'))
 					
 					
 				}
-			else if($('#time').val()=="30 day's" && cur.val()>499 && cur.val()<50001)
+			else if($('#time').val()=="30 day's")
 				{
 					var first;
 					var rate;
 					var fee;
-					first=$('#money').val();
+					first=$('#amount').val();
 					first=parseFloat(first);
 					rate=first*0.012;
 					fee=first*0.0012;
@@ -109,12 +91,12 @@ if(cur.hasClass('number'))
 					+ '<br> Length of loan: ' + date + '<br> Total amount: ' + amount 
 					+ '<br> Total loan cost: ' + total)
 				}
-			else if($('#time').val()=="2 month's" && cur.val()>499 && cur.val()<50001)
+			else if($('#time').val()=="2 month's")
 				{
 					var first;
 					var rate;
 					var fee;
-					first=$('#money').val();
+					first=$('#amount').val();
 					first=parseFloat(first);
 					rate=first*0.02;
 					fee=first*0.002;
@@ -134,12 +116,12 @@ if(cur.hasClass('number'))
 					+ '<br> Length of loan: ' + date + '<br> Total amount: ' + amount 
 					+ '<br> Total loan cost: ' + total)
 				}
-			else if($('#time').val()=="3 month's" && cur.val()>499 && cur.val()<50001)
+			else if($('#time').val()=="3 month's")
 				{
 					var first;
 					var rate;
 					var fee;
-					first=$('#money').val();
+					first=$('#amount').val();
 					first=parseFloat(first);
 					rate=first*0.025;
 					fee=first*0.0025;
@@ -159,12 +141,12 @@ if(cur.hasClass('number'))
 					+ '<br> Length of loan: ' + date + '<br> Total amount: ' + amount 
 					+ '<br> Total loan cost: ' + total)
 				}
-			else if($('#time').val()=="6 month's" && cur.val()>499 && cur.val()<50001)
+			else if($('#time').val()=="6 month's")
 				{
 					var first;
 					var rate;
 					var fee;
-					first=$('#money').val();
+					first=$('#amount').val();
 					first=parseFloat(first);
 					rate=first*0.035;
 					fee=first*0.0035;
@@ -184,12 +166,12 @@ if(cur.hasClass('number'))
 					+ '<br> Length of loan: ' + date + '<br> Total amount: ' + amount 
 					+ '<br> Total loan cost: ' + total)
 				}
-				else if($('#time').val()=="one year" && cur.val()>499 && cur.val()<50001)
+				else if($('#time').val()=="one year")
 				{
 					var first;
 					var rate;
 					var fee;
-					first=$('#money').val();
+					first=$('#amount').val();
 					first=parseFloat(first);
 					rate=first*0.045;
 					fee=first*0.0045;
@@ -209,29 +191,85 @@ if(cur.hasClass('number'))
 					+ '<br> Length of loan: ' + date + '<br> Total amount: ' + amount 
 					+ '<br> Total loan cost: ' + total)
 				
-				}});//Koniec funkcji obliczajacej
+				}});//Koniec funkcji obliczajacej finanse
 				
 				//Walidacja drugiego kroku
 if(cur.hasClass('post'))
 	{
-		if(isNaN(cur.val()))
-		{
-			cur.after('<p style="display:inline; color:ORANGE; padding-left:5px;">  *To pole nie jest liczba</p>');
-			
-				cur.data('valid',false);
-			
-		}
-		else if(cur.val()<500||cur.val()>50000)
+		if(cur.val().length<5)
 			{
-				cur.after('<p style="display:inline; color:ORANGE; padding-left:5px;">  * Select proper loan range </p>');
+				cur.after('<p style="display:inline; color:ORANGE; padding-left:5px;">  * Post code is too short </p>');
 				cur.data('valid',false);
 			}
 		else
 			{
 				cur.data('valid',true);
 			}
-	}	
 	}
+//Funkcje sprawdzajace trzeciego kroku	
+		
+if(cur.hasClass('address'))
+	{
+		var email=/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+		if(!email.test(cur.val()))
+			{
+				cur.after('<p style="display:inline; color:ORANGE; padding-left:5px;">  * Put correct e-mail address </p>');
+				cur.data('valid',false);
+			}
+		else
+			{
+				cur.data('valid',true);
+			}
+	}
+	
+if(cur.hasClass('addressc'))
+	{
+		var email=/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+		if(!email.test(cur.val()))
+			{
+				cur.after('<p style="display:inline; color:ORANGE; padding-left:5px;">  * Put correct e-mail address </p>');
+				cur.data('valid',false);
+			}
+		else if($('#address').val()!=cur.val())
+		{
+			cur.after('<p style="display:inline; color:ORANGE; padding-left:5px;">  * Put this same e-mail address  </p>');
+				cur.data('valid',false);
+			
+		}
+		else
+			{
+				cur.data('valid',true);
+			}
+	}
+if(cur.hasClass('nino'))
+	{
+		var email=/^([a-zA-Z]{2})([0-9]{10})$/;
+		if(!email.test(cur.val()))
+			{
+				cur.after('<p style="display:inline; color:ORANGE; padding-left:5px;">  * Wrong NINo. </p>');
+				cur.data('valid',false);
+			}
+		else
+			{
+				cur.data('valid',true);
+			}
+	}
+if(cur.hasClass('dob'))
+	{
+		
+		if(isNaN(cur.val()))
+			{
+				cur.after('<p style="display:inline; color:ORANGE; padding-left:5px;">  * It\'s not a number </p>');
+				cur.data('valid',false);
+			}
+		else
+			{
+				cur.data('valid',true);
+			}
+	}
+
+	}
+	
 
 	
 	//Funkcja sprawdzania klawisza dla pierwszego kroku
@@ -271,7 +309,7 @@ if(cur.hasClass('post'))
 					}
 					
 				});
-					$('.post').each(function() {
+				$('.post').each(function() {
                 var current=$(this);
 				if(current.data('valid')!=true)
 					{
@@ -290,9 +328,62 @@ if(cur.hasClass('post'))
 		}
 		else
 			$('#info2').html('<br><h3 style="color:ORANGE; "> Please corect Your data afcdsfggfgnd click Next again');
+			
 		});
 
+//Funkcja sprawdzania klawisza dla trzeciego kroku
+	$('#next3').click(function()
+		{
+			$('#info3').html('');
+			var data3=true;
+			$('.address').each(function() {
+                var current=$(this);
+				if(current.data('valid')!=true)
+					{
+						data3=false;
+					}
+					
+				});
+		$('.addressc').each(function() {
+                var current=$(this);
+				if(current.data('valid')!=true)
+					{
+						data3=false;
+					}
+					
+				});
+		$('.nino').each(function() {
+                var current=$(this);
+				if(current.data('valid')!=true)
+					{
+						data3=false;
+					}
+					
+				});
+	
+		$('.dob').each(function() {
+                var current=$(this);
+				
+				
+				
+					{
+						data3=false;
+					}
+					
+				});
+				
+					
+		if(data3)
+		{
+			$('#info3').html('');
+			$('#second').hide('slow');
+			$('#third').show('slow');
+		}
+		else
+			$('#info3').html('<br><h3 style="color:ORANGE;"> Please corect Your data afcdsfggfgnd click Next again');
+});
 
+//Walidacja czwartego kroku
 
 $('#back').click(function()
 {
@@ -302,8 +393,32 @@ $('#back').click(function()
 $('#back1').click(function()
 {
 	$('#second').hide('slow'); $('#first').show('slow');
-	});
+});
 
 
 });
 
+
+
+
+//JQUERY UI THEME!!!!!!!!!!!!!!!!!
+//Slider rate
+ $(function() {
+    $( "#slider" ).slider({
+         range: "min",
+      value: 500,
+      min: 500,
+      max: 10000,
+	  step:50,
+      slide: function( event, ui ) {
+        $( "#amount" ).val(ui.value);
+      }
+    });
+    $( "#amount" ).val( $( "#slider" ).slider( "values", 1 ) );
+  });
+ //Tool tip
+   $(function() {
+    $( document ).tooltip();
+  });
+ 
+ 
