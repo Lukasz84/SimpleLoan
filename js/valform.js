@@ -216,6 +216,11 @@ if(cur.hasClass('address'))
 				cur.after('<p style="display:inline; color:ORANGE; padding-left:5px;">  * Put correct e-mail address </p>');
 				cur.data('valid',false);
 			}
+		else if(cur.val()=='')
+			{
+				cur.after('<p style="display:inline; color:ORANGE; padding-left:5px;">  * Put Your e-mail address </p>');
+				cur.data('valid',false);
+			}
 		else
 			{
 				cur.data('valid',true);
@@ -236,6 +241,11 @@ if(cur.hasClass('addressc'))
 				cur.data('valid',false);
 			
 		}
+		else if(cur.val()=='')
+			{
+				cur.after('<p style="display:inline; color:ORANGE; padding-left:5px;">  * Put Your e-mail address </p>');
+				cur.data('valid',false);
+			}
 		else
 			{
 				cur.data('valid',true);
@@ -247,6 +257,11 @@ if(cur.hasClass('nino'))
 		if(!email.test(cur.val()))
 			{
 				cur.after('<p style="display:inline; color:ORANGE; padding-left:5px;">  * Wrong NINo. </p>');
+				cur.data('valid',false);
+			}
+		else if(cur.val()=='')
+			{
+				cur.after('<p style="display:inline; color:ORANGE; padding-left:5px;">  * Put NINo. </p>');
 				cur.data('valid',false);
 			}
 		else
@@ -267,7 +282,26 @@ if(cur.hasClass('dob'))
 				cur.data('valid',true);
 			}
 	}
-
+	
+	if(cur.hasClass('incoming'))
+	{
+		
+		if(isNaN(cur.val()))
+			{
+				cur.after('<p style="display:inline; color:ORANGE; padding-left:5px;">  * It\'s not a number </p>');
+				cur.data('valid',false);
+			}
+		else if(cur.val()=='')
+			{
+				cur.after('<p style="display:inline; color:ORANGE; padding-left:5px;">  * Put Your monthly incoming </p>');
+				cur.data('valid',false);
+			}
+		else
+			{
+				cur.data('valid',true);
+			}
+	}
+//Koniec skryptu warunkowego!!!!!!!!!!!
 	}
 	
 
@@ -379,15 +413,40 @@ if(cur.hasClass('dob'))
 					
 		if(data3)
 		{
-			$('#info3').html('');
-			$('#second').hide('slow');
-			$('#third').show('slow');
+			$('#info3').html('<br><h3 style="color:ORANGE;"> true');
 		}
 		else
 			$('#info3').html('<br><h3 style="color:ORANGE;"> Please corect Your data afcdsfggfgnd click Next again');
 });
 
 //Walidacja czwartego kroku
+$('#next4').click(function()
+		{
+			$('#info4').html('');
+			var data4=true;
+			$('.incoming').each(function() {
+                var current=$(this);
+				if(current.data('valid')!=true)
+					{
+						data4=false;
+					}
+				if(!$('#reg').is(':checked'))
+				{
+					data4=false;
+				}	
+				if(!$('#reg2').is(':checked'))
+				{
+					data4=false;
+				}	
+				});
+
+		
+		if(data4){
+			
+		}
+		else
+		$('#info4').html('<div class="ui-widget"><div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;"><p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span><strong>Sorry!</strong> Please, correct Your data or check all checkbox if You want to continue.</p></div>');
+		});
 
 $('#back').click(function()
 {
