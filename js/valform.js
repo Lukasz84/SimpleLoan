@@ -368,8 +368,11 @@ if(cur.hasClass('dob'))
 //Funkcja sprawdzania klawisza dla trzeciego kroku
 	$('#next3').click(function()
 		{
-			$('#info3').html('');
+			3
+			
 			var data3=true;
+
+			$('#info3').html('');
 			$('.nino').each(function() {
                 var current=$(this);
 				if(current.data('valid')!=true)
@@ -379,7 +382,6 @@ if(cur.hasClass('dob'))
 					
 				});
 			$('#info3').html('');
-			var data3=true;
 			$('.dob').each(function() {
                 var current=$(this);
 				if(current.data('valid')!=true)
@@ -389,7 +391,6 @@ if(cur.hasClass('dob'))
 					
 				});
 			$('#info3').html('');
-			var data3=true;
 			$('.address').each(function() {
                 var current=$(this);
 				if(current.data('valid')!=true)
@@ -399,7 +400,6 @@ if(cur.hasClass('dob'))
 					
 				});
 			$('#info3').html('');
-			var data3=true;
 			$('.addressc').each(function() {
                 var current=$(this);
 				if(current.data('valid')!=true)
