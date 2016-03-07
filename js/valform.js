@@ -327,7 +327,7 @@ if(cur.hasClass('dob'))
 			
 		}
 		else
-		$('#info').html('<br><h3 style="color:ORANGE; "> Please corect Your data and click Next again');
+		$('#info').html('<div class="ui-widget"><div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;"><p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span><strong>Sorry!</strong> Please, correct Your data if You want to continue.</p></div>');
 		});
 		
 //Funkcja sprawdzania klawisza dla drugiego kroku
@@ -353,7 +353,7 @@ if(cur.hasClass('dob'))
 				});
 		
 		
-	
+
 		if(data2)
 		{
 				$('#info2').html('');
@@ -361,33 +361,13 @@ if(cur.hasClass('dob'))
 			$('#second').show('slow');
 		}
 		else
-			$('#info2').html('<br><h3 style="color:ORANGE; "> Please corect Your data afcdsfggfgnd click Next again');
+			$('#info2').html('<div class="ui-widget"><div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;"><p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span><strong>Sorry!</strong> Please, correct Your data if You want to continue.</p></div>');
 			
 		});
 
 //Funkcja sprawdzania klawisza dla trzeciego kroku
 	$('#next3').click(function()
 		{
-			$('#info3').html('');
-			var data3=true;
-			$('.address').each(function() {
-                var current=$(this);
-				if(current.data('valid')!=true)
-					{
-						data3=false;
-					}
-					
-				});
-			$('#info3').html('');
-			var data3=true;
-			$('.addressc').each(function() {
-                var current=$(this);
-				if(current.data('valid')!=true)
-					{
-						data3=false;
-					}
-					
-				});
 			$('#info3').html('');
 			var data3=true;
 			$('.nino').each(function() {
@@ -408,15 +388,38 @@ if(cur.hasClass('dob'))
 					}
 					
 				});
+			$('#info3').html('');
+			var data3=true;
+			$('.address').each(function() {
+                var current=$(this);
+				if(current.data('valid')!=true)
+					{
+						data3=false;
+					}
+					
+				});
+			$('#info3').html('');
+			var data3=true;
+			$('.addressc').each(function() {
+                var current=$(this);
+				if(current.data('valid')!=true)
+					{
+						data3=false;
+					}
+					
+				});
+			
 		
 				
 					
 		if(data3)
 		{
-			$('#info3').html('<br><h3 style="color:ORANGE;"> true');
+			$('#info3').html('');
+			$('#second').hide('slow');
+			$('#third').show('slow');
 		}
 		else
-			$('#info3').html('<br><h3 style="color:ORANGE;"> Please corect Your data afcdsfggfgnd click Next again');
+		$('#info3').html('<div class="ui-widget"><div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;"><p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span><strong>Sorry!</strong> Please, correct Your data if You want to continue.</p></div>');
 });
 
 //Walidacja czwartego kroku
@@ -445,6 +448,7 @@ $('#next4').click(function()
 			
 		}
 		else
+		
 		$('#info4').html('<div class="ui-widget"><div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;"><p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span><strong>Sorry!</strong> Please, correct Your data or check all checkbox if You want to continue.</p></div>');
 		});
 
@@ -457,6 +461,11 @@ $('#back1').click(function()
 {
 	$('#second').hide('slow'); $('#first').show('slow');
 });
+$('#back2').click(function()
+{
+	$('#third').hide('slow'); $('#second').show('slow');
+});
+
 
 
 });
@@ -471,8 +480,8 @@ $('#back1').click(function()
          range: "min",
       value: 500,
       min: 500,
-      max: 10000,
-	  step:50,
+      max: 50000,
+	  step:100,
       slide: function( event, ui ) {
         $( "#amount" ).val(ui.value);
       }
