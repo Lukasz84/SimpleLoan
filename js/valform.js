@@ -344,7 +344,9 @@ if(cur.hasClass('dob'))
 					}
 					
 				});
-		$('.addressc').each(function() {
+			$('#info3').html('');
+			var data3=true;
+			$('.addressc').each(function() {
                 var current=$(this);
 				if(current.data('valid')!=true)
 					{
@@ -352,7 +354,9 @@ if(cur.hasClass('dob'))
 					}
 					
 				});
-		$('.nino').each(function() {
+			$('#info3').html('');
+			var data3=true;
+			$('.nino').each(function() {
                 var current=$(this);
 				if(current.data('valid')!=true)
 					{
@@ -360,17 +364,17 @@ if(cur.hasClass('dob'))
 					}
 					
 				});
-	
-		$('.dob').each(function() {
+			$('#info3').html('');
+			var data3=true;
+			$('.dob').each(function() {
                 var current=$(this);
-				
-				
-				
+				if(current.data('valid')!=true)
 					{
 						data3=false;
 					}
 					
 				});
+		
 				
 					
 		if(data3)
