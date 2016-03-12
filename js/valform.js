@@ -426,6 +426,15 @@ if(cur.hasClass('dob'))
 $('#next4').click(function()
 		{
 			$('#info4').html('');
+			
+			
+			//Wyświetlanie danych!!!!!!!!!!!
+			$('#res1').html($('#amount').val());
+			$('#res2').html($('#time').val());
+			
+			//Wyświetlanie danych!!!!!!!!!!! dla LAST!!!!
+			
+			
 			var data4=true;
 			$('.incoming').each(function() {
                 var current=$(this);
@@ -445,12 +454,18 @@ $('#next4').click(function()
 
 		
 		if(data4){
+			$('#info3').html('');
+			$('#third').hide('slow');
+			$('#last').show('slow');
 			
 		}
 		else
 		
 		$('#info4').html('<div class="ui-widget"><div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;"><p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span><strong>Sorry!</strong> Please, correct Your data or check all checkbox if You want to continue.</p></div>');
 		});
+		
+		
+//OBSŁUGA KLAWISZY COFANIA!!!!!!
 
 $('#back').click(function()
 {
@@ -465,8 +480,13 @@ $('#back2').click(function()
 {
 	$('#third').hide('slow'); $('#second').show('slow');
 });
+$('#back_loan').click(function()
+{
+	$('#last').hide('slow'); $('#calc').show('slow');
 
+});
 
+//OBSŁUGA KLAWISZY COFANIA!!!!!!
 
 });
 

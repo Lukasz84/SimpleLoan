@@ -51,6 +51,13 @@ body{
 	opacity: 0.7;
 }
 
+.box{
+
+    box-sizing: border-box;
+    width: 50%;
+    float: left;
+} 
+
 .header{
 	position: absolute;
 	top: calc(10% - 35px);
@@ -188,7 +195,7 @@ body{
         <form>
 		<div class="login" style="margin-top:-60px;">
         
-           <section id="calc"  hidden="true">
+           <section id="calc">
           <p>
   <label for="amount" style="font-size:16px; font-weight:bold;">Price range (£):</label>
   <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold; font-size:36px;">
@@ -223,8 +230,8 @@ body{
                     <span id="info2"></span>
                     </section>
              
-        <section id="second">
-        			<span>Second</span> Step <span>fill up simple form</span>:
+        <section id="second" hidden="true">
+        			<span>Second</span> Step <span>fill up simple form</span>
                     <h3>E-mail address:</h3>   <input type="text" class="address" placeholder="email address" name="address" id="address">
                     <h3>Confirm E-mail address:</h3>   <input type="text" class="addressc" placeholder="confirm email address" name="address" 
                     id="addressc">
@@ -261,8 +268,18 @@ body{
                     <input type="button" value="Back" name="submit" id="back2">
                        <span id="info4"></span>
                     </section>
-                    
-                   
+                                  
+                 <section id="last" hidden="true">
+                 <h1><span>Second</span> Step <span>fill up simple form</span>:
+                 <br>
+                 <h1>Confirm Your data:</h1>
+                 <h1>Loan info:</h1>
+                 <hr>
+                 <div class="box"><h3>Loan amount:</h3> <span id="res1"></span></div> 
+                 <div class="box"><h3>Time for loan payback:</h3> <span id="res2" style="color:orange;"></span></div>
+                 <input type="button" value="Change" name="submit" id="back_loan">
+                 <input type="button" value="Send" name="submit" id="send_val">
+                 </section>  
 		
        
  		</div>	       
